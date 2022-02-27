@@ -5,11 +5,21 @@ import starWarsApi from '../services/starWarsApi';
 
 function StarWarsProvider({ children }) {
   const [planets, setPlanets] = useState([]);
-  const context = { planets };
+  const [name, setName] = useState('');
+
+  function HaldleName(event) {
+    setName(event);
+  }
 
   useEffect(() => {
     starWarsApi().then(({ results }) => setPlanets(results));
   }, []);
+
+  const context = {
+    planets,
+    name,
+    HaldleName,
+  };
 
   return (
     <StarWarsContext.Provider value={ context }>

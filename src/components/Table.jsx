@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import StarWarsContext from '../context/StarWarsContext';
+import HandleFIlter from '../services/HandleFilter';
 
 function Table() {
-  const { planets } = useContext(StarWarsContext);
-  console.log(planets.length);
+  const { planets, name } = useContext(StarWarsContext);
   return (
     <section>
       <table>
@@ -25,7 +25,7 @@ function Table() {
           </tr>
         </thead>
         <tbody>
-          { planets.length > 0 && planets.map((planet) => (
+          { planets.length > 0 && HandleFIlter(planets, name).map((planet) => (
             <tr key={ planet.name }>
               <td>{ planet.name }</td>
               <td>{ planet.rotation_period }</td>
