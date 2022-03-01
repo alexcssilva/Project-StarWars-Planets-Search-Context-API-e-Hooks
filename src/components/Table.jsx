@@ -3,7 +3,7 @@ import StarWarsContext from '../context/StarWarsContext';
 import HandleFIlter from '../services/HandleFilter';
 
 function Table() {
-  const { planets, name } = useContext(StarWarsContext);
+  const { planets, name, filterByNumeric } = useContext(StarWarsContext);
   return (
     <section>
       <table>
@@ -25,7 +25,8 @@ function Table() {
           </tr>
         </thead>
         <tbody>
-          { planets.length > 0 && HandleFIlter(planets, name).map((planet) => (
+          { planets.length > 0
+          && HandleFIlter(planets, name, filterByNumeric).map((planet) => (
             <tr key={ planet.name }>
               <td>{ planet.name }</td>
               <td>{ planet.rotation_period }</td>

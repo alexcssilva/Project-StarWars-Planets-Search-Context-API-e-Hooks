@@ -6,6 +6,7 @@ import starWarsApi from '../services/starWarsApi';
 function StarWarsProvider({ children }) {
   const [planets, setPlanets] = useState([]);
   const [name, setName] = useState('');
+  const [filterByNumeric, setFilterByNumeric] = useState([]);
 
   function HaldleName(event) {
     setName(event);
@@ -19,6 +20,8 @@ function StarWarsProvider({ children }) {
     planets,
     name,
     HaldleName,
+    filterByNumeric,
+    setFilterByNumeric,
   };
 
   return (
