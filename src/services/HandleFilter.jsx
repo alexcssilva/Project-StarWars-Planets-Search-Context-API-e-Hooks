@@ -22,4 +22,4 @@ export default function HandleFIlter(data, name, filterByNumeric) {
 }
 
 // Auxiliado por Jonatas Lima - Turma 17
-// Requisitos 3 e 4
+// Requisitos 3, 4 e 5

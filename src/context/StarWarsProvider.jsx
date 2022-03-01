@@ -7,6 +7,13 @@ function StarWarsProvider({ children }) {
   const [planets, setPlanets] = useState([]);
   const [name, setName] = useState('');
   const [filterByNumeric, setFilterByNumeric] = useState([]);
+  const [columns, setColumns] = useState([
+    'population',
+    'orbital_period',
+    'diameter',
+    'rotation_period',
+    'surface_water',
+  ]);
 
   function HaldleName(event) {
     setName(event);
@@ -22,6 +29,8 @@ function StarWarsProvider({ children }) {
     HaldleName,
     filterByNumeric,
     setFilterByNumeric,
+    columns,
+    setColumns,
   };
 
   return (

@@ -6,7 +6,9 @@ function Header() {
   const [columFilter, setColumFilter] = useState('population');
   const [operatorFilter, setOperatorFilter] = useState('maior que');
   const [valueFilter, setValueFilter] = useState(0);
-  const { HaldleName, setFilterByNumeric } = useContext(StarWarsContext);
+  const {
+    HaldleName, setFilterByNumeric, columns, setColumns,
+  } = useContext(StarWarsContext);
 
   useEffect(() => {
     HaldleName(nameFilter);
@@ -21,6 +23,7 @@ function Header() {
         value: valueFilter,
       },
     ]);
+    setColumns((prev) => prev.filter((column) => column !== columFilter));
   };
 
   return (
@@ -46,11 +49,9 @@ function Header() {
             value={ columFilter }
             onChange={ (event) => setColumFilter(event.target.value) }
           >
-            <option value="population">population</option>
-            <option value="orbital_period">orbital_period</option>
-            <option value="diameter">diameter</option>
-            <option value="rotation_period">rotation_period</option>
-            <option value="surface_water">surface_water</option>
+            {columns.map((column) => (
+              <option key={ column } value={ column }>{column}</option>
+            ))}
           </select>
         </label>
         <label htmlFor="comparison-filter">
@@ -90,3 +91,6 @@ function Header() {
 }
 
 export default Header;
+
+// Auxiliado por Jonatas Lima - Turma 17
+// Requisitos 3, 4 e 5
