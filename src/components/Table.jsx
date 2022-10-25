@@ -26,7 +26,7 @@ function Table() {
         </thead>
         <tbody>
           { planets.length > 0
-          && HandleFIlter(planets, name, filterByNumeric).map((planet) => (
+          Project-StarWars Planets S&& HandleFIlter(planets, name, filterByNumeric).map((planet) => (
             <tr key={ planet.name }>
               <td>{ planet.name }</td>
               <td>{ planet.rotation_period }</td>
